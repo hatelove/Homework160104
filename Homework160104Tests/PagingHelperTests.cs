@@ -15,7 +15,7 @@ namespace Homework160104.Tests
         private List<Product> _products;
 
         [TestInitialize]
-        public void GetTestSource()
+        public void InitialTestSource()
         {
             _products = new List<Product>
                 {
@@ -29,6 +29,12 @@ namespace Homework160104.Tests
                     new Product {Id = 8, Cost = 1, Revenue = 2, SellPrice = 3},
                     new Product {Id = 9, Cost = 1, Revenue = 2, SellPrice = 3}
                 };
+        }
+
+        [TestCleanup]
+        public void ClearupTestSource()
+        {
+            _products = null;
         }
 
         [TestMethod]
