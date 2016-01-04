@@ -32,7 +32,7 @@ namespace Homework160104.Tests
         }
 
         [TestMethod]
-        public void GetPagingTest_column_cost_paging_3_should_1_2_3()
+        public void SumByPagingTest_column_cost_paging_3_should_1_2_3()
         {
             IProductSource source = Substitute.For<IProductSource>();
             ColumnType columnType = ColumnType.Cost;
@@ -48,7 +48,7 @@ namespace Homework160104.Tests
         }
 
         [TestMethod]
-        public void GetPagingTest_column_revenue_paging_3_should_2_4_6()
+        public void SumByPagingTest_column_revenue_paging_3_should_2_4_6()
         {
             IProductSource source = Substitute.For<IProductSource>();
             ColumnType columnType = ColumnType.Revenue;
@@ -64,7 +64,7 @@ namespace Homework160104.Tests
         }
 
         [TestMethod]
-        public void GetPagingTest_column_sell_price_paging_3_should_3_6_9()
+        public void SumByPagingTest_column_sell_price_paging_3_should_3_6_9()
         {
             IProductSource source = Substitute.For<IProductSource>();
             ColumnType columnType = ColumnType.SellPrice;
@@ -80,7 +80,7 @@ namespace Homework160104.Tests
         }
 
         [TestMethod]
-        public void GetPagingTest_column_cost_paging_2_should_1_1_1_2_1()
+        public void SumByPagingTest_column_cost_paging_2_should_1_1_1_2_1()
         {
             IProductSource source = Substitute.For<IProductSource>();
             ColumnType columnType = ColumnType.Cost;
