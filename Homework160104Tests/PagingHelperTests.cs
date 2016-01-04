@@ -19,6 +19,7 @@ namespace Homework160104.Tests
         {
             _products = new List<Product>
                 {
+                    //跟需求的資料不一樣，請務必練習從需求/spec來撰寫等義的測試案例
                     new Product {Id = 1, Cost = 1, Revenue = 0, SellPrice = 0},
                     new Product {Id = 2, Cost = 0, Revenue = 2, SellPrice = 0},
                     new Product {Id = 3, Cost = 0, Revenue = 0, SellPrice = 3},
@@ -37,10 +38,12 @@ namespace Homework160104.Tests
             _products = null;
         }
 
+        // 請依照需求上面的 scenario 設計測試案例
         [TestMethod]
         public void SumByPagingTest_column_cost_paging_3_should_1_2_3()
         {
             IProductSource source = Substitute.For<IProductSource>();
+            //enum是一種標準解法, 透過 string + reflection 也是一種, 更漂亮的是透過 generic + lambda, 寫起來最快、彈性最好、風險也最低、易讀性也最高
             ColumnType columnType = ColumnType.Cost;
             int paging = 3;
             source.GetSource().ReturnsForAnyArgs(_products);
@@ -50,6 +53,7 @@ namespace Homework160104.Tests
             PagingHelper helper = new PagingHelper(source);
             List<int> actual = helper.SumByPaging(columnType, paging);
 
+            //這個結果順序是重要的，所以應該用 CollectionAssert.AreEqual, 而不是AreEquivalent
             CollectionAssert.AreEquivalent(expected, actual);
         }
 
