@@ -23,6 +23,8 @@ namespace Homework160104
 
             switch (type)
             {
+                //這一段就是 enum 產生的 effort, 怎麼用別的方式來取代 enum, 直接讓外部可以使用 s.Cost, s.Revenue, s.SellPrice, 就是透過類似 LINQ to Objects 的作法，讓外部傳 delegate 進來。
+                //可以參考一下我的範例：https://gist.github.com/hatelove/f5a4c2591293828b637f
                 case ColumnType.Cost:
                     return productSums.Select(s => s.Cost).ToList();
                 case ColumnType.Revenue:
@@ -46,6 +48,7 @@ namespace Homework160104
 
                 PagingProductSum sum = new PagingProductSum();
 
+                //這一段是額外的 effort, 如果只針對 Cost 加總，那麼 Revenue 跟 SellPrice 就是多做的
                 foreach (var product in enumerable)
                 {
                     sum.Cost += product.Cost;
